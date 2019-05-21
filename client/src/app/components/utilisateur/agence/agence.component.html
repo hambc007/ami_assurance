@@ -1,0 +1,135 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Nos agences</h2>
+
+          <hr>
+
+
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header text-uppercase">Trouve une agence</div>
+              <div class="card-body">
+
+                <div class="row">
+
+                  <div class="col-lg-6">
+                    <select class="form-control custom-select form-control-square" [(ngModel)]="agencesFilter2.gouvernorat">
+                      <option value="" disabled selected hidden>Gouvernorat</option>
+                      <option value="">Tous les gouvernorats</option>
+                      <option value="18">Ariana</option>
+                      <option value="43">Béja</option>
+                      <option value="17">Ben arous</option>
+                      <option value="44">Bizerte</option>
+                      <option value="16">Gabes</option>
+                      <option value="15">Gafsa</option>
+                      <option value="45">Jendouba</option>
+                      <option value="46">Kairouan</option>
+                      <option value="47">Kasserine</option>
+                      <option value="48">Kebili</option>
+                      <option value="49">La Manouba</option>
+                      <option value="50">Le Kef</option>
+                      <option value="51">Mahdia</option>
+                      <option value="52">Médenine</option>
+                      <option value="53">Monastir</option>
+                      <option value="54">Nabeul</option>
+                      <option value="55">Sfax</option>
+                      <option value="56">Sidi Bouzid</option>
+                      <option value="57">Siliana</option>
+                      <option value="12">Sousse</option>
+                      <option value="14">Tataouine</option>
+                      <option value="58">Tozeur</option>
+                      <option value="13">Tunis</option>
+                      <option value="59">Zaghouan</option>
+                    </select>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control form-control-square" placeholder="Mot clé"
+                           [(ngModel)]="agencesFilter.adresse">
+                  </div>
+
+                </div>
+
+
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+
+                <ul class="nav" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#map" title="Carte"><i
+                      class="fa fa-map-marker fa-2x"></i></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#list" title="Liste"><i class="fa fa-list fa-2x"></i>
+                    </a>
+                  </li>
+                </ul>
+
+                <hr>
+
+                <div class="tab-content">
+                  <div id="map" class="container tab-pane active">
+
+                  </div>
+                  <div id="list" class="container tab-pane fade">
+
+
+                    <div class="row">
+
+                      <div class="col-12 col-lg-4" *ngFor="let agence of agences | filterBy: agencesFilter | filterBy: agencesFilter2">
+                        <div class="card">
+                          <img src="/assets/images/agence.jpeg" class="card-img-top" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">{{agence.nom}}</h5>
+                          </div>
+                          <ul class="list-group list-group-flush list shadow-none">
+                            <li class="list-group-item d-flex justify-content-between align-items-center small">
+                              {{agence.gsm}}
+                              <span class="fa fa-mobile fa-2x"></span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center small">
+                              {{agence.telephone}}
+                              <span class="fa fa-phone fa-2x"></span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center small">
+                              {{agence.fax}}
+                              <span class="fa fa-fax fa-2x"></span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center small">
+                              {{agence.adresse}}
+                              <span class="fa fa-location-arrow fa-2x"></span></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p *ngIf="(agences | filterBy: agencesFilter | filterBy: agencesFilter2)?.length === 0">
+                        Aucun élément correspondant
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

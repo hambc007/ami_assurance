@@ -1,0 +1,188 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Contrat</h2>
+          <hr>
+
+          <div class="row">
+
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+
+                  <section class="invoice">
+                    <div class="row mt-2">
+                      <div class="col-lg-6">
+                        <h5 >
+                          Numéro série
+                          <small>{{contrat.numero_serie}}</small>
+                        </h5>
+                      </div>
+                      <div class="col-lg-6">
+                        <h5 class="float-sm-right">Date de création:
+                          <small>{{contrat.date_creation | date}}</small>
+                        </h5>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row invoice-info">
+
+                      <div class="col-sm-4 invoice-col">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w-icon"><i class="fa fa-money text-facebook"></i></div>
+                            <div class="media-body ml-3 border-left-xs text-facebook">
+                              <h4 class="mb-0 ml-3 text-facebook">{{contrat.montant}}</h4>
+                              <p class="mb-0 ml-3 extra-small-font">Montant</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-sm-4 invoice-col">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w-icon"><i class="fa fa-house text-facebook"></i></div>
+                            <div class="media-body ml-3 border-left-xs text-facebook">
+                              <h4 class="mb-0 ml-3 text-facebook">{{contrat.type}}</h4>
+                              <p class="mb-0 ml-3 extra-small-font">Type</p>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+                      <div class="col-sm-4 invoice-col">
+                        <div class="card-body">
+                          <div class="media align-items-center">
+                            <div class="w-icon"><i class="fa fa-check-square-o {{contrat.status===1?'text-facebook':'text-danger'}}"></i></div>
+                            <div class="media-body ml-3 border-left-xs {{contrat.status===1?'text-facebook':'text-danger'}}">
+                              <h4 class="mb-0 ml-3 {{contrat.status===1?'text-facebook':'text-danger'}}"> {{contrat.status===1?'Activée':'Epuisée'}}</h4>
+                              <p class="mb-0 ml-3 extra-small-font">Status</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <div class="col-lg-6 payment-icons">
+
+                        <div class="row">
+                          <div class="card-body m-3">
+                            <div class="media align-items-center">
+                              <div class="w-icon"><i class="fa fa-hourglass-start text-facebook"></i></div>
+                              <div class="media-body ml-3 border-left-xs text-facebook">
+                                <h4 class="mb-0 ml-3 text-facebook">{{contrat.date_debut | date}}</h4>
+                                <p class="mb-0 ml-3 extra-small-font">Date debut</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="card-body m-3">
+                            <div class="media align-items-center">
+                              <div class="w-icon"><i class="fa fa-hourglass-end text-facebook"></i></div>
+                              <div class="media-body ml-3 border-left-xs text-facebook">
+                                <h4 class="mb-0 ml-3 text-facebook">{{contrat.date_fin | date}}</h4>
+                                <p class="mb-0 ml-3 extra-small-font">Date fin</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="col-lg-6">
+
+
+                        <div class="card-body">
+                          <h5 class="card-title">{{contrat.agence.nom}}</h5>
+                        </div>
+                        <ul class="list-group list-group-flush list shadow-none">
+                          <li class="list-group-item d-flex justify-content-between align-items-center small text-facebook">
+                            {{contrat.agence.gsm}}
+                            <span class="fa fa-mobile fa-2x"></span></li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center small text-facebook">
+                            {{contrat.agence.telephone}}
+                            <span class="fa fa-phone fa-2x"></span></li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center small text-facebook">
+                            {{contrat.agence.fax}}
+                            <span class="fa fa-fax fa-2x"></span></li>
+                          <li class="list-group-item d-flex justify-content-between align-items-center small text-facebook">
+                            {{contrat.agence.adresse}}
+                            <span class="fa fa-location-arrow fa-2x"></span></li>
+                        </ul>
+                      </div>
+
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                      <!-- accepted payments column -->
+                      <div class="col-lg-6 payment-icons">
+                        <h5>Description:</h5>
+                        <p class="bg-light p-2 mt-3 rounded">
+                          {{contrat.description}}
+                        </p>
+                      </div><!-- /.col -->
+                      <div class="col-lg-6">
+                        <h5>Client</h5>
+                        <div class="table-responsive">
+                          <table class="table">
+                            <tbody>
+                            <tr>
+                              <th>Prénom & Nom:</th>
+                              <td>{{contrat.client.prenom}} {{contrat.client.nom}}</td>
+                            </tr>
+                            <tr>
+                              <th>Téléphone:</th>
+                              <td>{{contrat.client.telephone}}</td>
+                            </tr>
+                            <tr>
+                              <th>Email:</th>
+                              <td>{{contrat.client.email}}</td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div><!-- /.col -->
+                    </div>
+
+
+                  </section>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

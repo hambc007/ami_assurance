@@ -1,0 +1,58 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Réclamation</h2>
+
+          <hr>
+          <div class="row">
+
+            <div class="col-12 col-lg-12">
+              <div class="card">
+                <div class="card-header">Liste des réclamation</div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush table-striped table-hover">
+                      <thead>
+                      <tr>
+                        <th>Contenu</th>
+                        <th>Titre</th>
+                        <th>Date</th>
+                        <th>détail</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let reclamation of reclamations | filterBy: filter">
+                        <td>{{reclamation.contenu}}</td>
+                        <td>{{reclamation.titre}}</td>
+                        <td>{{reclamation.date | date}}</td>
+                        <td><a [routerLink]="['/reclamation/voir', reclamation.id ]" title="détail"><span class="fa fa-list-alt fa-2x"></span></a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

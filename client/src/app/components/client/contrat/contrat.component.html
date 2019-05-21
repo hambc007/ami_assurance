@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Contrat</h2>
+
+          <hr>
+          <div class="row">
+
+            <div class="col-12 col-lg-12">
+              <div class="card">
+                <div class="card-header border-0">Liste de vos contrats</div>
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush table-striped table-hover">
+                    <thead>
+                    <tr>
+                      <th>Numéro série</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>Montant</th>
+                      <th>Date début</th>
+                      <th>Date fin</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let contrat of contrats | filterBy: filter">
+                      <td>{{contrat.numero_serie}}</td>
+                      <td>{{contrat.type}}</td>
+                      <td>{{contrat.status}}</td>
+                      <td>{{contrat.montant}}</td>
+                      <td>{{contrat.date_debut |date}}</td>
+                      <td>{{contrat.date_fin |date}}</td>
+                      <td><a [routerLink]="['/detail','contrat', contrat.id ]" data-toggle="tooltip" data-placement="left" data-original-title="détail"><span class="fa fa-list-alt fa-2x"></span></a></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

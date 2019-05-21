@@ -1,0 +1,32 @@
+<a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" (click)="modifier()">
+  <i class="fa fa-bell-o"></i><span *ngIf="(notifications | filterBy: nbnotificationFilter)?.length !==0" class="badge badge-info badge-up">{{(notifications | filterBy: nbnotificationFilter)?.length}}</span></a>
+<div class="dropdown-menu dropdown-menu-right">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item text-center">
+      Vous avez {{(notifications | filterBy: nbnotificationFilter)?.length}} notifications
+    </li>
+
+    <li class="list-group-item p-0">
+      <ul class=" list-group shadow-none list-group-flush scroll"style="max-height: 180px;">
+
+
+        <li class="list-group-item p-2" *ngFor="let notification of notifications | filterBy: notificationFilter">
+          <a href="{{notification.lien}}" onclick="modifier(notification.id)">
+            <div class="media">
+              <div class="avatar">
+                <img class="align-self-start mr-3" src="{{notification.image ? notification.image : '/assets/images/agence.jpeg'}}" alt="user avatar">
+              </div>
+              <div class="media-body">
+                <p class="msg-info">{{notification.objet | slice:0:28}} <span *ngIf="notification.objet?.length > 28">...</span></p>
+                <small>{{notification.date | timeAgo}}</small>
+              </div>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+    <a  class="list-group-item text-center" [routerLink]="['/notification']" >Voir toutes les notifications</a>
+  </ul>
+</div>

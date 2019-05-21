@@ -1,0 +1,139 @@
+<div id="sidebar-wrapper" class="bg-theme bg-theme2 active" data-simplebar="init" data-simplebar-auto-hide="true"><div class="simplebar-track vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="visibility: visible; top: 0px; height: 377px;"></div></div><div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;"><div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+  <div class="brand-logo">
+    <a href="index-2.html">
+      <img src="assets/images/assurance_ami.png" style="width:120px;" class="logo-icon" alt="logo icon" title="AMI Assurances">
+    </a>
+  </div>
+  <div class="user-details">
+    <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
+      <div class="avatar"><img class="mr-3 side-user-img" src="{{utilisateur.image ? utilisateur.image : '/assets/images/avatar5.png'}}" title="{{utilisateur.prenom}} {{utilisateur.nom}}"></div>
+      <div class="media-body">
+        <h6 class="side-user-name text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}}  </h6>
+      </div>
+    </div>
+    <div id="user-dropdown" class="collapse">
+      <ul class="user-setting-menu">
+        <li><a [routerLink]="['/profile']" ><i class="icon-user"></i> Profile</a></li>
+        <li><a [routerLink]="['/parametre']" ><i class="icon-settings"></i> Paramétre</a></li>
+        <li><a [routerLink]="['/login']" (click)="logout()"><i class="icon-power"></i> Déconnecter</a></li>
+      </ul>
+    </div>
+  </div>
+  <ul *ngIf="(role.id==='1'&& '1')"  class="sidebar-menu do-nicescrol in" >
+    <li   class="sidebar-header">MENU</li>
+
+    <li class="">
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="fa fa-share"></i> <span>Gérer client</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="sidebar-submenu" style="display: none">
+        <li><a [routerLink]="['/client/ajouter']"><i class="zmdi zmdi-long-arrow-right"></i> Nouveau client</a></li>
+
+        <li><a [routerLink]="['/client/list']" class="waves-effect"><i class="zmdi zmdi-long-arrow-right"></i> Nos client</a></li>
+      </ul>
+    </li>
+
+    <li class="">
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="fa fa-share"></i> <span>Gérer contrat</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="sidebar-submenu" style="display: none">
+        <li><a [routerLink]="['/contrat/ajouter']"><i class="zmdi zmdi-long-arrow-right"></i> Nouveau contrat</a></li>
+
+        <li><a [routerLink]="['/contrat/recherche']" class="waves-effect"><i class="zmdi zmdi-long-arrow-right"></i> List des contrats</a></li>
+      </ul>
+    </li>
+
+    <li class="">
+      <a href="javaScript:void();" class="waves-effect">
+        <i class="fa fa-share"></i> <span>Gérer actualité</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="sidebar-submenu" style="display: none">
+
+
+
+
+
+      <a [routerLink]="['/actualite/ajouter']" class="waves-effect">
+        <i class="zmdi zmdi-long-arrow-right"></i> <span>Nouvelle actualité</span>
+      </a>
+
+      <a [routerLink]="['/actualite']" class="waves-effect">
+        <i class="zmdi zmdi-long-arrow-right"></i> <span>Supprimer actualités</span>
+      </a>
+
+  </ul>
+    </li>
+
+
+    <li>
+      <a [routerLink]="['/declaration/list']" class="waves-effect">
+        <i class="fa fa-calendar-check-o"></i> <span>Consulter les déclarations</span>
+        <small class="badge float-right badge-danger" *ngIf="(declaration |  filterBy: declarationfilter)?.length !== 0">{{(declaration |  filterBy: declarationfilter)?.length}}</small>
+      </a>
+    </li>
+    <li class="">
+      <a [routerLink]="['/reclamation/list']" class="waves-effect">
+        <i class="zmdi zmdi-widgets"></i> <span>Consulter les Réclamations</span>
+        <small class="badge float-right badge-danger" *ngIf="(reclamation |  filterBy: reclamationfilter)?.length !== 0">{{(reclamation |  filterBy: reclamationfilter)?.length}}</small>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/update']" class="waves-effect">
+        <i class="fa fa-history"></i> <span>Ajout  sinistres</span>
+      </a>
+    </li>
+
+
+
+
+
+
+    <li>
+      <a [routerLink]="['/agence']" class="waves-effect">
+        <i class="fa fa-location-arrow"></i> <span>Notre réseau</span>
+      </a>
+    </li>
+
+
+ </ul>
+
+ <ul *ngIf="(role.id==='2'&& '2')"class="sidebar-menu do-nicescrol in"  >
+   <li class="sidebar-header">MENU</li>
+   <li>
+     <a [routerLink]="['/actualiteclient']" class="waves-effect">
+       <i class="fa fa-file-text-o"></i> <span>Nos actualités</span>
+     </a>
+   </li>
+   <li>
+     <a [routerLink]="['/contrat']" class="waves-effect">
+       <i class="fa fa-file-text-o"></i> <span>Consultez vos contrats</span>
+     </a>
+   </li>
+
+   <li>
+     <a [routerLink]="['/historique']" class="waves-effect">
+       <i class="fa fa-history"></i> <span>Historique de vos sinistres</span>
+     </a>
+   </li>
+   <li>
+     <a [routerLink]="['/reclamer']" class="waves-effect">
+       <i class="fa fa-calendar"></i> <span>Déposer une réclamation</span>
+     </a>
+   </li>
+   <li>
+     <a [routerLink]="['/declaration/ajouter']" class="waves-effect">
+       <i class="fa fa-calendar-check-o"></i> <span>Déposer une déclaration</span>
+     </a>
+   </li>
+
+   <li>
+     <a [routerLink]="['/agence']" class="waves-effect">
+       <i class="fa fa-location-arrow"></i> <span>Notre réseau</span>
+     </a>
+   </li>
+</ul>
+</div></div></div>

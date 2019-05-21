@@ -1,0 +1,137 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>sinistre</h2>
+
+          <hr>
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">Sinistre</div>
+                <div class="card-body">
+                  <div class="media">
+
+                    <div class="media-body">
+                      <h5 class="mt-0 text-capitalize">
+                      {{resultat.id}}   </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+
+                <div class="card-body">
+                  <div class="media">
+
+                  <div class="col-lg-6 payment-icons">
+                    <h5>Description:</h5>
+                    <p class="bg-light p-2 mt-3 rounded">
+                      {{resultat.description}}
+                    </p>
+                  </div><!-- /.col -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">details </div>
+                <div class="card-body">
+
+                    <div class="card-body ">
+                      <div class="media align-items-center">
+                        <div class="w-icon"><i class="fa fa-hourglass-start text-facebook"></i></div>
+                        <div class="media-body ml-3 border-left-xs text-facebook">
+                          <h4 class="mb-0 ml-3 text-facebook">{{resultat.date | date}}</h4>
+                          <p class="mb-0 ml-3 extra-small-font">Date </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="media align-items-center">
+                        <div class="w-icon"><i class="fa fa-tasks text-facebook"></i></div>
+                        <div class="media-body ml-3 border-left-xs text-facebook">
+                          <h4 class="mb-0 ml-3 text-primary">{{resultat.etat}}</h4>
+                    <p class="mb-0 ml-3 extra-small-font">etat</p>              </div>
+                      </div>
+                    </div>
+                    <div *ngIf="(resultat.etat==='terminer'&& 'terminer')"class="card-body">
+                      <div *ngIf="(resultat.resultat==='acceptee'&& 'acceptee')" class="media align-items-center">
+                        <div class="w-icon"><i class="fa fa-battery-full text-facebook"></i></div>
+                        <div  class="media-body ml-3 border-left-xs text-facebook">
+                          <h4 class="mb-0 ml-3 text-success">{{resultat.resultat}}</h4>
+
+                    <p class="mb-0 ml-3 extra-small-font">resultat</p>              </div>
+
+                      </div>
+
+                      <div *ngIf="(resultat.resultat==='refuser'&& 'refuser')" class="media align-items-center">
+                        <div class="w-icon"><i class="fa fa-battery-empty text-facebook"></i></div>
+                        <div  class="media-body ml-3 border-left-xs text-facebook">
+                          <h4 class="mb-0 ml-3 text-danger">{{resultat.resultat}}</h4>
+
+                    <p class="mb-0 ml-3 extra-small-font">resultat</p>              </div>
+
+                      </div>
+                    </div>
+                    <div *ngIf="(resultat.etat==='terminer'&& 'terminer' )"  class="card-body">
+                      <div *ngIf="(resultat.resultat==='acceptee'&& 'acceptee')" class="media align-items-center">
+                        <div class="w-icon"><i class="fa fa-money text-facebook"></i></div>
+                        <div class="media-body ml-3 border-left-xs text-facebook">
+                          <h4 class="mb-0 ml-3 text-facebook">{{resultat.montant}}</h4>
+                          <p class="mb-0 ml-3 extra-small-font">montant</p>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                </div>
+              </div>
+            <div class="card">
+              <div class="card-header">contrat</div>
+              <div class="card-body">
+
+                <ul class="list-group list-group-flush list shadow-none">
+                  <li class="list-group-item d-flex justify-content-between align-items-center text-capitalize text-facebook">
+                    {{resultat.contrat.numero_serie}}
+                    <span class="fa fa-id-card-o fa-2x"></span></li>
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                    {{resultat.contrat.description}}
+                    <span class="fa fa-file fa-2x"></span></li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                    {{resultat.contrat.date_debut}}
+                    <span class="fa fa-calendar fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{resultat.contrat.date_fin}}
+                      <span class="fa fa-calendar-o fa-2x"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <app-footer></app-footer>

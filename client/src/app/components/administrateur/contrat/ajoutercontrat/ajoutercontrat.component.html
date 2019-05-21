@@ -1,0 +1,154 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2> Contrat</h2>
+
+          <hr>
+          <div class="row">
+            <div class="col-lg-10">
+
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Nouveau contrat</div>
+                  <hr>
+
+                  <form name="form" (ngSubmit)="f.form.valid && ajouter()" #f="ngForm" novalidate>
+
+
+                    <div class="form-group row">
+                      <label for="type" class="col-sm-2 col-form-label">Type</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !type.valid }">
+
+                        <select class="type" id="type" class="form-control custom-select form-control-square" name="type" [(ngModel)]="model.type" #type="ngModel">
+                          <option class="Particuliers">Particuliers</option>
+                          <option class="Professionnels & indépendants">Professionnels & indépendants</option>
+                          <option class="Entreprises">Entreprises</option>
+                          <option class="Spécialistes de la construction">Spécialistes de la construction</option>
+                        </select>
+                      </div>
+                      <div *ngIf="f.submitted && !type.valid" class="text-danger">Sélectionnez type!</div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group row">
+                      <label for="date_debut" class="col-sm-2 col-form-label">Date début</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !date_debut.valid }">
+                        <input type="date" name="date_debut" id="date_debut" maxlength="200" [(ngModel)]="model.date_debut"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Date début"
+                               #date_debut="ngModel" required>
+                        <div *ngIf="f.submitted && !date_debut.valid" class="text-danger">Saisissez Date début!</div>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                      <label for="date_fin" class="col-sm-2 col-form-label">Date fin</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !date_fin.valid }">
+                        <input type="date" name="date_fin" id="date_fin" maxlength="200" [(ngModel)]="model.date_fin"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Date fin"
+                               #date_fin="ngModel" required>
+                        <div *ngIf="f.submitted && !date_fin.valid" class="text-danger">Saisissez Date fin!</div>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                      <label for="montant" class="col-sm-2 col-form-label">Montant (TND)</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !montant.valid }">
+                        <input type="text" name="montant" id="montant" [(ngModel)]="model.montant"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Montant (TND)"
+                               #montant="ngModel" required>
+                        <div *ngIf="f.submitted && !montant.valid" class="text-danger">Saisissez montant!</div>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                      <label for="description" class="col-sm-2 col-form-label">Description</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+                        <textarea type="text" rows="4" name="description" id="description" maxlength="200" [(ngModel)]="model.description"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Description"
+                               #description="ngModel" required></textarea>
+
+                        <div *ngIf="f.submitted && !description.valid" class="text-danger">Saisissez description!</div>
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group row">
+                      <label for="type" class="col-sm-2 col-form-label">Client</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !client.valid }">
+                        <select class="client" id="client" class="form-control custom-select form-control-square single-select" name="client" [(ngModel)]="model.client" #client="ngModel">
+                          <option  *ngFor="let client of clients" value="{{client.id}}">{{client.prenom}} {{client.nom}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="f.submitted && !client.valid" class="text-danger">Sélectionnez client!</div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label for="type" class="col-sm-2 col-form-label">Agence</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !agence.valid }">
+                        <select class="agence" id="agence" class="form-control custom-select form-control-square single-select" name="agence" [(ngModel)]="model.agence" #agence="ngModel">
+                          <option  *ngFor="let agence of agences" value="{{agence.id}}">{{agence.nom}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="f.submitted && !agence.valid" class="text-danger">Sélectionnez agence!</div>
+                    </div>
+
+
+                    <div class="text-center" *ngIf="error">
+                      <span class="badge badge-danger shadow-danger p-2 m-2">veuillez vérifier les champs!</span>
+                    </div>
+                    <hr>
+
+                    <button class="btn btn-primary btn-square waves-effect waves-light pull-right m-1">Ajouter</button>
+                    <button type="reset" class="btn btn-light btn-square waves-effect waves-light pull-right m-1">
+                      Annuler
+                    </button>
+
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

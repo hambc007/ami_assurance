@@ -1,0 +1,58 @@
+
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>détail d'actualite :  {{a.titre}}</h2>
+          <hr>
+
+          <div class="row">
+
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+
+<div class="row mt-2">
+  <div class="col-lg-6">
+    <div class="card" class="col-lg-9">
+      <img class="d-block w-200 card-img-top"
+alt="Card image cap" style="width:700px;height:300;"  src="{{a.image}}" >
+
+
+  </div>
+  <div class="col-lg-6">
+    <h5 class="float-sm-right">Date de création:
+      <small>{{a.date | date}}</small>
+    </h5>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+    <h5>
+      Contenu :
+      <small>{{a.contenu}}</small>
+    </h5>
+  </div>
+</div>
+</div>
+
+  </div>
+</div>
+</div>
+<app-footer></app-footer>

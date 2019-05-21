@@ -1,0 +1,92 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Declaration</h2>
+
+          <hr>
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">détail de Declaration</div>
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <h5 class="mt-0 text-capitalize">
+                      {{declaration.titre}}
+                      </h5>
+                      {{declaration.contenu}}
+                        <img src="{{declaration.image}}" class="card-img-top" alt="Card image cap">
+                        <button class="btn btn-primary btn-square waves-effect waves-light pull-right m-1" (click)="modifier()"> Ajouter un sinistre</button>
+                        <button class="btn btn-light btn-square waves-effect waves-light pull-right m-1">
+                          Refuser
+                        </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">Client</div>
+                <div class="card-body">
+
+                  <ul class="list-group list-group-flush list shadow-none">
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-capitalize text-facebook">
+                      {{declaration.client.prenom}} {{declaration.client.nom}}
+                      <span class="fa fa-user fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{declaration.client.telephone}}
+                      <span class="fa fa-phone fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{declaration.client.email}}
+                      <span class="fa fa-envelope-o fa-2x"></span></li>
+                  </ul>
+
+                </div>
+              </div>
+            <div class="card">
+              <div class="card-header">contrat</div>
+              <div class="card-body">
+
+                <ul class="list-group list-group-flush list shadow-none">
+                  <li class="list-group-item d-flex justify-content-between align-items-center text-capitalize text-facebook">
+                    {{declaration.contrat.numero_serie}}
+                    <span class="fa fa-id-card-o fa-2x"></span></li>
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                    {{declaration.contrat.description}}
+                    <span class="fa fa-file fa-2x"></span></li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                    {{declaration.contrat.date_debut}}
+                    <span class="fa fa-calendar fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{declaration.contrat.date_fin}}
+                      <span class="fa fa-calendar-o fa-2x"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <app-footer></app-footer>

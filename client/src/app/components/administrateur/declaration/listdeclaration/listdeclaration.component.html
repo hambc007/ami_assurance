@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>listdeclaration</h2>
+
+          <hr>
+          <div class="row">
+
+            <div class="col-12 col-lg-12">
+              <div class="card">
+                <div class="card-header">Liste des declarations</div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush table-striped table-hover">
+                      <thead>
+                      <tr>
+                        <th>contrat</th>
+                        <th>client</th>
+                        <th>Titre</th>
+                        <th>Date</th>
+                        <th>details</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let declaration of declarations  | filterBy: filter">
+                        <td>{{declaration.contrat.numero_serie}}</td>
+                        <td>{{declaration.client.nom}} {{declaration.client.prenom}} </td>
+                        <td>{{declaration.titre}}</td>
+                        <td>{{declaration.date | date}}</td>
+                        <td><a [routerLink]="['/declaration/resultat', declaration.id ]" title="détail"><span class="fa fa-list-alt fa-2x"></span></a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

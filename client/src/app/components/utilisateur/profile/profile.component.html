@@ -1,0 +1,194 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8">
+
+        <div *ngIf="!modifier">
+
+          <div class="card profile-card-2">
+            <div class="card-img-block">
+              <img class="img-fluid" src="assets/images/gallery/11.jpg" alt="Card image cap">
+            </div>
+            <div class="card-body pt-5">
+              <img src="{{utilisateur.image ? utilisateur.image : '/assets/images/avatar5.png'}}" title="{{utilisateur.prenom}} {{utilisateur.nom}}"
+                   style="width: 75px;height: 75px;" class="profile">
+              <div>
+                <h5 class="card-title text-capitalize pull-left">{{utilisateur.prenom}} {{utilisateur.nom}}</h5>
+                <a href="javascript:void()" (click)="toggle()"
+                   title="tooltip" title="Modifier"
+                   class="btn-social btn-outline-behance waves-effect waves-light pull-right"><i
+                  class="fa fa-pencil"></i></a>
+              </div>
+            </div>
+
+            <div class="card-body border-top border-light">
+              <div class="media m-0 p-0">
+                <span class="fa fa-envelope-o text-primary fa-4x"></span>
+                <p class="text-left m-3">{{utilisateur.email}}</p>
+              </div>
+              <hr>
+              <div class="media m-0 p-0">
+                <span class="fa fa-drivers-license-o text-primary fa-4x"></span>
+                <p class="text-left m-3">{{utilisateur.cin}}</p>
+              </div>
+              <hr>
+              <div class="media m-0 p-0">
+                <span class="fa fa-phone text-primary fa-4x"></span>
+                <p class="text-left m-3">{{utilisateur.telephone}}</p>
+              </div>
+              <hr>
+              <div class="media m-0 p-0">
+                <span class="fa fa-home text-primary fa-4x"></span>
+                <p class="text-left m-3">{{utilisateur.adresse}}</p>
+              </div>
+              <hr>
+              <div class="media m-0 p-0">
+                <span class="fa fa-birthday-cake text-primary fa-4x"></span>
+                <p class="text-left m-3">{{utilisateur.datenaissance | date}}</p>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div *ngIf="modifier">
+          <form name="form" #f="ngForm" (ngSubmit)="modifiercompte()" novalidate>
+            <div class="card profile-card-2">
+
+
+              <div class="card-img-block">
+                <img class="img-fluid" src="assets/images/gallery/11.jpg" alt="Card image cap">
+
+              </div>
+
+
+              <div class="card-body pt-4">
+
+                <label for="upload" (change)="changeimage(image.files)">
+                  <input type="file" #image id="upload" name="image" style="display:none" accept="image/*">
+                  <img src="{{utilisateur.image ? utilisateur.image : '/assets/images/avatar5.png'}}" alt="Avatar" style="width: 75px;height: 75px;" class="profile ">
+
+                </label>
+
+
+                <div>
+                  <div class="input-group">
+                    <input type="text" class="form-control form-control-square m-1 col-lg-3"
+                           [(ngModel)]="utilisateur.prenom" #prenom="ngModel" placeholder="Prénom" name="prenom">
+
+
+                    <input type="text" class="form-control form-control-square m-1 col-lg-3"
+                           [(ngModel)]="utilisateur.nom" #nom="ngModel" placeholder="Nom" name="nom">
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="card-body border-top border-light">
+                <div class="media m-0 p-0">
+                  <span class="fa fa-envelope-o text-primary fa-4x"></span>
+                  <input type="text" class="form-control form-control-square m-2"
+                         [(ngModel)]="utilisateur.email" #email="ngModel" placeholder="Email" name="email">
+                </div>
+                <hr>
+                <div class="media m-0 p-0">
+                  <span class="fa fa-drivers-license-o text-primary fa-4x"></span>
+                  <input type="text" class="form-control form-control-square m-2" readonly
+                         [(ngModel)]="utilisateur.cin" #cin="ngModel" placeholder="Cin" name="cin">
+                </div>
+                <hr>
+                <div class="media m-0 p-0">
+                  <span class="fa fa-phone text-primary fa-4x"></span>
+                  <input type="text" class="form-control form-control-square m-2"
+                         [(ngModel)]="utilisateur.telephone" #telephone="ngModel" placeholder="Téléphone"
+                         name="telephone">
+
+                </div>
+                <hr>
+                <div class="media m-0 p-0">
+                  <span class="fa fa-home text-primary fa-4x"></span>
+                  <input type="text" class="form-control form-control-square m-2"
+                         [(ngModel)]="utilisateur.adresse" #adresse="ngModel" placeholder="Adresse"
+                         name="adresse">
+
+                </div>
+                <hr>
+                <div class="media m-0 p-0">
+                  <span class="fa fa-birthday-cake text-primary fa-4x"></span>
+                  <input type="date" class="form-control form-control-square m-2"  id="default-datepicker"
+                         [(ngModel)]="utilisateur.datenaissance" #datenaissance="ngModel" placeholder="Date naissance"
+                         name="datenaissance">
+
+                </div>
+                <hr>
+
+
+                <button class="btn btn-primary btn-square waves-effect waves-light pull-right m-1">Valider</button>
+                <button (click)="toggle()" class="btn btn-light btn-square waves-effect waves-light pull-right m-1">
+                  Annuler
+                </button>
+              </div>
+
+
+            </div>
+          </form>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+        <div class="card">
+          <div id="carousel-2" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-2" data-slide-to="1" class=""></li>
+              <li data-target="#carousel-2" data-slide-to="2" class=""></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 card-img-top" style="width:253px;height: 173px;" src="assets/images/ami.jpg"
+                     alt="Card image cap">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 card-img-top" style="width:253px;height: 173px;" src="assets/images/ami2.jpg"
+                     alt="Card image cap">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 card-img-top" style="width:253px;height: 173px;" src="assets/images/ami3.png"
+                     alt="Card image cap">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <div class="card-body text-center">
+            <h6 class="text-primary">Une parfaite maitrise du risque </h6>
+            <p class="card-text">découvrez notre univers</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

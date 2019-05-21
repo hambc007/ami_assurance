@@ -1,0 +1,116 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Nouveau Client</h2>
+
+          <hr>
+          <div class="row">
+            <div class="col-lg-10">
+
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Ajouter un Client</div>
+                  <hr>
+
+                  <form name="form" (ngSubmit)="f.form.valid && ajouter()" #f="ngForm" novalidate>
+
+
+                    <div class="form-group row">
+                      <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !nom.valid }">
+                        <input type="text" name="nom" id="nom" maxlength="100" [(ngModel)]="model.nom"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Nom"
+                               #nom="ngModel" required>
+                        <div *ngIf="f.submitted && !nom.valid" class="text-danger">Saisissez le nom!</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !prenom.valid }">
+                        <input type="text" name="prenom" id="prenom" maxlength="100" [(ngModel)]="model.prenom"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Prénom"
+                               #prenom="ngModel" required>
+                        <div *ngIf="f.submitted && !prenom.valid" class="text-danger">Saisissez le prénom!</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="cin" class="col-sm-2 col-form-label">Cin</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !cin.valid }">
+                        <input type="text" name="cin" id="cin" maxlength="100" [(ngModel)]="model.cin"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Cin"
+                               #cin="ngModel" required>
+                        <div *ngIf="f.submitted && !cin.valid" class="text-danger">Saisissez le cin!</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="email" class="col-sm-2 col-form-label">Email</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                        <input type="email" name="email" id="email" maxlength="100" [(ngModel)]="model.email"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="E-mail"
+                               #email="ngModel" required>
+                        <div *ngIf="f.submitted && !email.valid" class="text-danger">Saisissez email!</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !telephone.valid }">
+                        <input type="text" name="telephone" id="telephone" maxlength="15" [(ngModel)]="model.telephone"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Téléphone"
+                               #telephone="ngModel" required>
+                        <div *ngIf="f.submitted && !telephone.valid" class="text-danger">Saisissez téléphone!</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label for="adresse" class="col-sm-2 col-form-label">Adresse</label>
+                      <div class="form-group col-sm-10" [ngClass]="{ 'has-error': f.submitted && !adresse.valid }">
+                        <input type="text" name="adresse" id="adresse" maxlength="200" [(ngModel)]="model.adresse"
+                               class="form-control input-shadow bg-white form-control-square" placeholder="Adresse"
+                               #adresse="ngModel" required>
+                        <div *ngIf="f.submitted && !adresse.valid" class="text-danger">Saisissez adresse!</div>
+                      </div>
+                    </div>
+
+                    <div class="text-center" *ngIf="error">
+                      <span class="badge badge-danger shadow-danger p-2 m-2">veuillez vérifier les champs!</span>
+                    </div>
+                    <hr>
+
+                    <button class="btn btn-primary btn-square waves-effect waves-light pull-right m-1">Ajouter</button>
+                    <button type="reset" class="btn btn-light btn-square waves-effect waves-light pull-right m-1">
+                      Annuler
+                    </button>
+
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

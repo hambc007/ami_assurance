@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Actualité</h2>
+
+          <hr>
+          <div class="row">
+
+
+            <div class="col-12 col-lg-4" *ngFor="let actualite of actualites">
+              <div class="card" class="col-lg-9">
+                <img class="d-block w-100 card-img-top"
+ alt="Card image cap" style="width:253px;height:250;"  src="{{actualite.image}}" >
+                <div class="card-body">
+                  <small>{{actualite.date |date}}</small>
+                  <h6>{{actualite.titre}}</h6>
+                  <p>{{actualite.contenu | slice:0:100}}<span *ngIf="actualite.contenu?.length > 100">...</span>...</p>
+                  <hr>
+                  <a [routerLink]="['/voiractualite', actualite.id ]"
+                     class="btn btn-primary btn-sm text-white">Lire la suite</a>
+                  <a (click)="supprimer(actualite)" title="Supprimer"
+                     class="btn btn-danger btn-sm pull-right text-white"><span class="fa fa-trash-o"></span></a>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="actualites?.length === 0">
+              <p>Aucune actualitée trouvée pour le moment</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

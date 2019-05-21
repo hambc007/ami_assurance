@@ -1,0 +1,61 @@
+<div class=" card-authentication1 mx-auto m-5">
+    <div class="card-body">
+      <div class="card-content p-2">
+        <div class="text-center">
+          <img class="card-title text-uppercase text-center py-3" src="assets/images/assurance_ami.png" alt="logo icon">
+        </div>
+
+        <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="exampleInputUsername" class="sr-only">Log In</label>
+            <div class="position-relative has-icon-right">
+              <input type="text" name="username"  id="input-5" [(ngModel)]="model.username" id="exampleInputUsername" class="form-control input-shadow bg-white form-control-square" placeholder="login" #username="ngModel" required>
+              <div class="form-control-position">
+                <i class="icon-user"></i>
+              </div>
+              <div *ngIf="f.submitted && !username.valid" class="text-danger">Saisissez votre Log In!</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword" class="sr-only">Password</label>
+            <div class="position-relative has-icon-right">
+              <input type="password" name="password" [(ngModel)]="model.password" id="exampleInputPassword" class="form-control input-shadow bg-white form-control-square" placeholder="Mot de passe" #password="ngModel" required >
+              <div class="form-control-position">
+                <i class="icon-lock"></i>
+              </div>
+              <div *ngIf="f.submitted && !password.valid" class="text-danger">Saisissez votre mot de passe!</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <div class="icheck-material-primary">
+                <input type="checkbox" id="user-checkbox" checked="" />
+                <label for="user-checkbox">Remember me</label>
+              </div>
+            </div>
+
+            <div class="form-group col-6 text-right">
+                         <a href="/actualiteclient">Reset Password</a>
+                       </div>
+          </div>
+          <button class="btn btn-primary btn-block form-control-square">Se connecter</button>
+        </form>
+        <div class="text-center" *ngIf="error">
+          <span class="badge badge-danger shadow-danger p-2 m-2">Log in ou Mot de passe invalide!</span>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+  </div>

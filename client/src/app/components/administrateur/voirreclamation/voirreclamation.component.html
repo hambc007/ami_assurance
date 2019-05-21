@@ -1,0 +1,71 @@
+<app-menu></app-menu>
+
+<app-header></app-header>
+
+
+<div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <h2>Réclamation</h2>
+
+          <hr>
+          <div class="row">
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">détail de réclamation</div>
+                <div class="card-body">
+                  <div class="media">
+
+                    <div class="media-body">
+                      <h5 class="mt-0 text-capitalize "> {{reclamation.titre}}
+                        <div class="icheck-material-primary icheck-inline pull-right">
+                          <input type="checkbox" id="inline-primary" (click)="modifier()">
+                          <label for="inline-primary">Traitée</label>
+                        </div>
+                      </h5>
+                      {{reclamation.contenu}}
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-header">Client</div>
+                <div class="card-body">
+
+                  <ul class="list-group list-group-flush list shadow-none">
+                    <li class="list-group-item d-flex justify-content-between align-items-center text-capitalize text-facebook">
+                      {{reclamation.client.prenom}} {{reclamation.client.nom}}
+                      <span class="fa fa-user fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{reclamation.client.telephone}}
+                      <span class="fa fa-phone fa-2x"></span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center  text-facebook">
+                      {{reclamation.client.email}}
+                      <span class="fa fa-envelope-o fa-2x"></span></li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>
